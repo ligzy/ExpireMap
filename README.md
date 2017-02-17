@@ -25,8 +25,8 @@ to schedule the removal of expired items from the map.
 
 [BasicScheduler.java] (src/main/java/com/expiremap/impl/BasicScheduler.java) is a basic single threaded implementation that uses a queue based on the expiry times of entries,
 and wakes up exactly when an entry has to be discarded from the map. It monitors the addition/removal from the map and updates it's own wake up/sleep times accordingly.
-This scheduler can be customized according to the needs like fine tuning wake up/sleep times, deciding on the schedule for removal of expired items etc.
-It should just implement the interface ExpireMapScheduler.
+This scheduler can be customized according to the needs like fine tuning wake up/sleep times, deciding on the schedule for removal of expired items, no. of threads concurrently accessing the maps, etc.
+The custom schedulers should just implement the interface ExpireMapScheduler.
 
-The scheduler uses a queue data structure to order the entries in the map according to their TTL. The BasicScheduler by default uses [BasicQueue.java] (src/main/java/com/expiremap/impl/BasicQueue.java),
-which is a ConcurrentSkipListMap to order the entries by their TTL. But any custom queueing mechansim can be used instead, as long as it implements the ExpireMapQueue interface.
+The scheduler uses a queue as a data structure to order the entries in the map according to their TTL. The BasicScheduler by default uses [BasicQueue.java] (src/main/java/com/expiremap/impl/BasicQueue.java),
+which is a ConcurrentSkipListMap to order the entries by their TTL. But any custom queueing mechansim can be used instead, as long as it implements the [ExpireMapQueue.java](src/main/java/com/expiremap/interfaces/ExpireMapQueue.java) interface.
