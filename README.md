@@ -11,8 +11,8 @@ A standard Map interface in Java with entries that can expire after a given time
 ### Interface methods:
 
 * public V put(K key, V value, long timeoutMs);
-* public V get(Object key);
-* public V remove(Object key);
+* public V get(K key);
+* public V remove(K key);
 
 ### Deep dive:
 
