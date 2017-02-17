@@ -1,20 +1,22 @@
-# ExpireMap: A standard, thread-safe, Map interface in Java with entries that can expire after a given time period. Useful data structure for caches in metadata.
+# ExpireMap
+
+A standard, thread-safe, Map interface in Java with entries that can expire after a given time period. Useful data structure for caches and metadata.
 
 
-### Interface methods
+### Interface methods:
 
 * public V put(K key, V value, long timeoutMs);
 * public V get(Object key);
 * public V remove(Object key);
 
-### Deep dive
+### Deep dive:
 
-[ExpireMap.java](src/main/java/com/expiremap/interfaces/ExpireMap.java) is the basic interface.
+[ExpireMap.java](src/main/java/com/expiremap/interfaces/ExpireMap.java) is the basic interface for a map that supports put, get, and remove methods.
 
-[CustomExpireMap.java] (src/main/java/com/expiremap/impl/CustomExpireMap.java) is a ConcurrentHashMap based implementation for the interface.
+[CustomExpireMap.java] (src/main/java/com/expiremap/impl/CustomExpireMap.java) is a ConcurrentHashMap-based implementation for the interface.
 
-Internally CustomExpireMap is written to work with any variant of ConcurrentMap interface, but ConcurrentHashMap is used for prototype purposes.
-The map stores <Key, ExpireMapEntry> pairs.
+- Internally CustomExpireMap is written to work with any variant of ConcurrentMap interface, but ConcurrentHashMap here is used for prototype purposes.
+The map stores < Key, ExpireMapEntry > pairs.
 
 [ExpireMapEntry.java] (src/main/java/com/expiremap/impl/ExpireMapEntry.java) is an implementation that has a time to live (TTL) field for each entry in the map.
 
