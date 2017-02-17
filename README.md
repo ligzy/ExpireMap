@@ -41,4 +41,4 @@ which is a `ConcurrentSkipListMap` to order the entries by their TTL. But any cu
 
 ### Build:
 
-* 'mvn clean install'
+* `mvn clean install`
