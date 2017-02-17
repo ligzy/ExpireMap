@@ -18,10 +18,10 @@ The map stores <Key, ExpireMapEntry> pairs.
 
 [ExpireMapEntry.java] (src/main/java/com/expiremap/impl/ExpireMapEntry.java) is an implementation that has a time to live (TTL) field for each entry in the map.
 
-[ExpireMapScheudler.java] (src/main/java/com/expiremap/interfaces/ExpireMapScheudler.java) is the basic interface that any new custom scheduler needs to implement,
+[ExpireMapScheduler.java] (src/main/java/com/expiremap/interfaces/ExpireMapScheduler.java) is the basic interface that any new custom scheduler needs to implement,
 to schedule the removal of expired items from the map.
 
-[BasicScheduler.java] (src/main/java/com/expiremap/impl/BasicScheudler.java) is a basic single threaded implementation that uses a queue based on the expiry times of entries,
+[BasicScheduler.java] (src/main/java/com/expiremap/impl/BasicScheduler.java) is a basic single threaded implementation that uses a queue based on the expiry times of entries,
 and wakes up exactly when an entry has to be discarded from the map. It monitors the addition/removal from the map and updates it's own wake up/sleep times accordingly.
 This scheduler can be customized according to the needs like fine tuning wake up/sleep times, deciding on the schedule for removal of expired items etc.
 It should just implement the interface ExpireMapScheduler.
